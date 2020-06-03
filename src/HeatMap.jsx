@@ -4,6 +4,7 @@ import XLabels from "./XLabels";
 import DataGrid from "./DataGrid";
 
 function HeatMap({
+  style,
   xLabels,
   yLabels,
   data,
@@ -37,7 +38,7 @@ function HeatMap({
     />
   );
   return (
-    <div>
+    <div class= "HeatMap" style = {{style}}>
       {xLabelsLocation === "top" && xLabelsEle}
       <DataGrid
         {...{
@@ -66,6 +67,7 @@ function HeatMap({
 }
 
 HeatMap.propTypes = {
+  style: PropTypes.React.CSSProperties, 
   xLabels: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
   ).isRequired,
@@ -90,6 +92,7 @@ HeatMap.propTypes = {
 };
 
 HeatMap.defaultProps = {
+  style={},
   background: "#329fff",
   height: 30,
   xLabelWidth: 60,
